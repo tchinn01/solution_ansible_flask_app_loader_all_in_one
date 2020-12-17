@@ -1,0 +1,25 @@
+---
+- name: Fetch Server Information
+  os_server_info:
+    cloud: openstack
+    flavor: m2.*
+  register: r_os_servers
+
+- import_playbook: provision_database_tier.yml
+- name: Provision Database Server
+  hosts: database_servers
+  gather_facts: false
+  become: true
+
+- import_playbook: provision_app_tier.yml
+- name: Provision App Tier
+  hosts: app_servers
+  gather_facts: false
+  become: true
+
+- import_playbook: provision_load_balancer_tier.yml
+- name: Deploy Load Balancers
+  hosts: load_balancers
+  gather_facts: false
+  become: true
+

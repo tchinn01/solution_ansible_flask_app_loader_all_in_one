@@ -1,6 +1,6 @@
 Host *
   User cloud-user
-  IdentityFile ~/.ssh/openstack.pem
+  IdentityFile ~/.ssh/test_id_rsa
   ControlMaster auto
   ControlPath /tmp/%h-%r
   ControlPersist 5m
