@@ -1,0 +1,6 @@
+[all]
+192.0.2.8
+192.0.2.14
+
+[all:vars]
+ansible_user=heat-admin
